@@ -32,7 +32,7 @@ include "core.php";
         </div>
         <div class="nav__btn">
         <?php
-          if(isset($_SESSION['email']) && ($_SESSION['role_id'] === 2 || $_SESSION['role_id'] === 3)){
+          if(isset($_SESSION['email']) && ($_SESSION['role_id'] == 2 || $_SESSION['role_id'] == 3)){
               echo '<a href="store.php"><span><i class="ri-admin-line"></i></span></a>';
           }
           ?>
