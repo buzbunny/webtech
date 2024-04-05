@@ -49,23 +49,23 @@ function displayItems() {
                 $sellerContact = $sellerInfo['contact'];
                 
                 // Display seller's email and contact details or logo image based on user_id
-                if ($sellerId == 7) {
+                if ($sellerId == 2) {
                     echo '                        <p>';
                     echo '                            <img src="landing/assets/JC_logo.webp" alt="logo" width="102%"/>';
                     echo '                        </p>';
-                } elseif ($sellerId == 8) {
+                } elseif ($sellerId == 3) {
                     echo '                        <p>';
                     echo '                            <img src="landing/assets/rolex_logo.png" alt="logo" width="47%"/>';
                     echo '                        </p>';
-                } elseif ($sellerId == 9) {
+                } elseif ($sellerId == 4) {
                     echo '                        <p>';
                     echo '                            <img src="landing/assets/patek_logo.png" alt="logo" width="47%"/>';
                     echo '                        </p>';
-                } elseif ($sellerId == 10) {
+                } elseif ($sellerId == 5) {
                     echo '                        <p>';
                     echo '                            <img src="landing/assets/RM_logo.png" alt="logo" width="90%"  style="margin-top: 18%;"/>';
                     echo '                        </p>';
-                } elseif ($sellerId == 2) {
+                } elseif ($sellerId == 1) {
                     echo '                        <p>';
                     echo '                            <img src="landing/assets/logo.png" alt="logo" width="47%"/>';
                     echo '                        </p>';
