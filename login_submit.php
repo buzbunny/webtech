@@ -18,7 +18,7 @@ if (strlen($password) < 6) {
     <meta http-equiv="refresh" content="2;url=landing/login_page.php" />
     <?php
 }
-$user_authentication_query = "SELECT id, email FROM users WHERE email='$email' AND password='$password'";
+$user_authentication_query = "SELECT id, email, role_id FROM users WHERE email='$email' AND password='$password'";
 $user_authentication_result = mysqli_query($con, $user_authentication_query) or die(mysqli_error($con));
 $rows_fetched = mysqli_num_rows($user_authentication_result);
 if ($rows_fetched == 0) {
@@ -33,6 +33,11 @@ if ($rows_fetched == 0) {
     $row = mysqli_fetch_array($user_authentication_result);
     $_SESSION['email'] = $email;
     $_SESSION['user_id'] = $row['id'];  //user id
-    header('location: index.php'); // Redirect to index.php
+    // Check if role_id is 2 or 3
+    if ($row['role_id'] == 2 || $row['role_id'] == 3) {
+        header('location: seller_index.php'); // Redirect to seller_index.php
+    } else {
+        header('location: index.php'); // Redirect to index.php for other role IDs
+    }
 }
 ?>

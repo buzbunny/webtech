@@ -32,7 +32,8 @@ include "core.php";
         </div>
         <div class="nav__btn">
         
-          
+        <a href="store.php"><span><i class="ri-admin-line"></i></span></a>
+
          
           <a href="landing/login_page.php"><span><i class="ri-login-box-line"></i></span></a>
         </div>
