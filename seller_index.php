@@ -203,7 +203,7 @@ $con->close();
         die("Connection failed: " . $con->connect_error);
       }
 
-      // Query to fetch 10 random items added by users with IDs 7, 8, 9, and 10
+      // Query to fetch 10 random items added by users with IDs 2, 3, 4, and 5
       $sql = "SELECT * FROM items WHERE user_id IN (2, 3, 4, 5) ORDER BY RAND() LIMIT 10";
       $result = $con->query($sql);
 
