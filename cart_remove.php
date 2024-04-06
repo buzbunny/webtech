@@ -17,7 +17,7 @@
         $sweetAlert = "<script>
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Deleted!',
+                                title: 'Removed!',
                                 text: 'Item has been removed from cart.',
                                 showConfirmButton: false,
                                 timer: 1500
