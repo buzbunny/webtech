@@ -1,10 +1,14 @@
 <?php
 session_start();
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 include "connection.php";
+
+// Initialize error message and success message variables
+$error_message = "";
+$success_message = "";
 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -28,43 +32,83 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Check if the image dimensions are not 1500x1500
         if ($image_width != 1500 || $image_height != 1500) {
-            // Redirect back to settings page with error message
-            header("Location: add_product.php?msg=Please upload an image with dimensions 1500x1500.");
-            exit();
-        }
-
-        // Upload file to the server
-        if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath)) {
-            // Check if user is logged in and 'user_id' session variable is set
-            if (isset($_SESSION['user_id'])) {
-                $user_id = $_SESSION['user_id'];
-                // Insert item into the items table
-                $insertItemQuery = "INSERT INTO items (name, price, image, user_id) VALUES ('$name', '$price', '$targetFilePath', '$user_id')";
-                if (mysqli_query($con, $insertItemQuery)) {
-                    // Redirect back to settings page with success message
-                    header("Location: add_product.php?msg=Item added successfully.");
-                    exit();
+            // Set error message
+            $error_message = "Please upload an image with dimensions 1500x1500.";
+        } else {
+            // Upload file to the server
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath)) {
+                // Check if user is logged in and 'user_id' session variable is set
+                if (isset($_SESSION['user_id'])) {
+                    $user_id = $_SESSION['user_id'];
+                    // Insert item into the items table
+                    $insertItemQuery = "INSERT INTO items (name, price, image, user_id) VALUES ('$name', '$price', '$targetFilePath', '$user_id')";
+                    if (mysqli_query($con, $insertItemQuery)) {
+                        // Set success message
+                        $success_message = "Item added successfully.";
+                    } else {
+                        // Set error message
+                        $error_message = "Error adding item to the database: " . mysqli_error($con);
+                    }
                 } else {
-                    // Display error message
-                    echo "Error: " . mysqli_error($con);
-                    // Redirect back to settings page with error message
-                    // header("Location: add_product.php?msg=Error adding item to the database.");
+                    // Redirect to login page or handle session not set scenario
+                    header("Location: landing/login_page.php");
                     exit();
                 }
             } else {
-                // Redirect to login page or handle session not set scenario
-                header("Location: landing/login_page.php");
-                exit();
+                // Set error message
+                $error_message = "Sorry, there was an error uploading your file.";
             }
-        } else {
-            // Redirect back to settings page with error message
-            header("Location: add_product.php?msg=Sorry, there was an error uploading your file.");
-            exit();
         }
     } else {
-        // Redirect back to settings page with error message
-        header("Location: add_product.php?msg=Sorry, only JPG, JPEG, PNG, GIF files are allowed.");
-        exit();
+        // Set error message
+        $error_message = "Sorry, only JPG, JPEG, PNG, GIF files are allowed.";
     }
 }
 ?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body>
+    <?php if (!empty($error_message)) { ?>
+        <script>
+            $(document).ready(function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '<?php echo $error_message; ?>',
+                    timer: 2000,
+                    timerProgressBar: true,
+                    showConfirmButton: false
+                }).then(function() {
+                    window.location.href = 'add_product.php'; // Redirect back to the add_product page
+                });
+            });
+        </script>
+    <?php } elseif (!empty($success_message)) { ?>
+        <script>
+            $(document).ready(function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: '<?php echo $success_message; ?>',
+                    timer: 1000,
+                    timerProgressBar: true,
+                    showConfirmButton: false
+                }).then(function() {
+                    window.location.href = 'add_product.php'; // Redirect back to the add_product page
+                });
+            });
+        </script>
+    <?php } ?>
+    <!-- Your HTML content goes here -->
+</body>
+</html>

@@ -54,7 +54,7 @@ if (!preg_match($regex_email, $email)) {
             icon: 'error',
             title: 'Oops...',
             text: '<?php echo $error_message; ?>',
-            timer: 3000,
+            timer: 2000,
             timerProgressBar: true,
             showConfirmButton: false
         }).then(function() {
@@ -67,7 +67,7 @@ if (!preg_match($regex_email, $email)) {
             icon: 'success',
             title: 'Success',
             text: '<?php echo $success_message; ?>',
-            timer: 3000,
+            timer: 1000,
             timerProgressBar: true,
             showConfirmButton: false
         }).then(function() {

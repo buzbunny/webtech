@@ -17,7 +17,7 @@ include "display_sales_fxn.php";
 
 <body>
     
-<img src="landing/assets/logo.png" alt="logo" width="5%"/>
+<a href="seller_index.php"><img src="landing/assets/logo.png" alt="logo" width="5%"/></a>
 <span class="welcome">
     <?php
     // Check if the user is logged in
@@ -141,32 +141,32 @@ foreach ($chartData as $dataRow) {
             reader.readAsDataURL(file);
         }
 
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.getElementById('product-form');
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     const form = document.getElementById('product-form');
 
-            form.addEventListener('submit', (event) => {
-                event.preventDefault(); // Prevent default form submission
+        //     form.addEventListener('submit', (event) => {
+        //         event.preventDefault(); // Prevent default form submission
 
-                const formData = new FormData(form);
+        //         const formData = new FormData(form);
 
-                fetch('add_product_action.php', {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(response => response.text())
-                    .then(data => {
-                        console.log(data);
-                        // Handle the server response here, if needed
-                        // You can redirect or display a message based on the response
-                        // For now, let's just reload the page
-                        location.reload(); // Reload the page after successful submission
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        // You might want to display an error message to the user here
-                    });
-            });
-        });
+        //         fetch('add_product_action.php', {
+        //                 method: 'POST',
+        //                 body: formData
+        //             })
+        //             .then(response => response.text())
+        //             .then(data => {
+        //                 console.log(data);
+        //                 // Handle the server response here, if needed
+        //                 // You can redirect or display a message based on the response
+        //                 // For now, let's just reload the page
+        //                 location.reload(); // Reload the page after successful submission
+        //             })
+        //             .catch(error => {
+        //                 console.error('Error:', error);
+        //                 // You might want to display an error message to the user here
+        //             });
+        //     });
+        // });
         
     </script>
 </body>
