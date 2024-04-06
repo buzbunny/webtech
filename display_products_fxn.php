@@ -55,7 +55,7 @@ function displayItems() {
                     echo '                        </p>';
                 } elseif ($sellerId == 3) {
                     echo '                        <p>';
-                    echo '                            <img src="landing/assets/rolex_logo.png" alt="logo" width="53%"/>';
+                    echo '                            <img src="landing/assets/rolex_logo.png" alt="logo" width="54%"/>';
                     echo '                        </p>';
                 } elseif ($sellerId == 4) {
                     echo '                        <p>';
@@ -71,7 +71,7 @@ function displayItems() {
                     echo '                        </p>';
                 }else {
                     echo '                        <p>Seller details:</p>';
-                    echo '                        <p>Email: ' . $sellerEmail . '<br>Contact: ' . $sellerContact . '</p>';
+                    echo '                        <p>Email: ' . $sellerEmail . '<br style= margin-top: 1%;>Contact: ' . $sellerContact . '</p>';
                 }
             }
             
