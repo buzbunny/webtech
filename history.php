@@ -33,7 +33,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="shortcut icon" href="img/lifestyleStore.png" />
         <title>WristLux. Co</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +51,7 @@
                require 'header.php';
             ?>
             <br>
-            <div class="container">
+            <div class="container" style=" margin-top: 5%;">
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>

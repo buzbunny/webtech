@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
             </button>
             <?php
-                session_start();
+                // session_start();
                 require 'connection.php';
 
             // Check if the user is logged in and their role_id
