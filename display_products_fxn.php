@@ -71,7 +71,7 @@ function displayItems() {
                     echo '                        </p>';
                 }else {
                     echo '                        <p>Seller details:</p>';
-                    echo '                        <p>Email: ' . $sellerEmail . '<br style= margin-top: 1%;>Contact: ' . $sellerContact . '</p>';
+                    echo '                        <p>Email: ' . $sellerEmail . '<br style= "margin-top: 2%";>Contact: ' . $sellerContact . '</p>';
                 }
             }
             
