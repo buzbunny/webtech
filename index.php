@@ -25,10 +25,10 @@ include "core.php";
           <div class="nav__logo">
             <a href="#"><img src="landing/assets/logo.png" alt="logo" /></a>
           </div>
-          <form action="/">
+          <!-- <form action="/">
             <input type="text" placeholder="Search" />
             <button type="submit"><i class="ri-search-line"></i></button>
-          </form>
+          </form> -->
         </div>
         <div class="nav__btn">
         
@@ -149,7 +149,7 @@ if ($con->connect_error) {
 }
 
 // Query to fetch 10 random items added by users with role_id = 2 and user_id != 2
-$sql = "SELECT * FROM items WHERE user_id IN (SELECT id FROM users WHERE role_id = 2 AND id != 2) ORDER BY RAND() LIMIT 10";
+$sql = "SELECT * FROM items WHERE user_id IN (SELECT id FROM users WHERE role_id = 2 AND id != 1) ORDER BY RAND() LIMIT 10";
 $result = $con->query($sql);
 
 // Display items in the desired format
@@ -203,7 +203,7 @@ $con->close();
       }
 
       // Query to fetch 10 random items added by users with IDs 7, 8, 9, and 10
-      $sql = "SELECT * FROM items WHERE user_id IN (7, 8, 9, 10) ORDER BY RAND() LIMIT 10";
+      $sql = "SELECT * FROM items WHERE user_id IN (2, 3, 4, 5) ORDER BY RAND() LIMIT 10";
       $result = $con->query($sql);
 
       // Display items in the desired format

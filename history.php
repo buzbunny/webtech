@@ -9,34 +9,25 @@
 
     $user_id = $_SESSION['user_id'];
 
-    // Query to fetch items in the cart that have not been confirmed
-    $user_products_query = "SELECT it.id, it.name, it.price 
-                            FROM users_items ut 
-                            INNER JOIN items it ON it.id = ut.item_id 
-                            WHERE ut.user_id = '$user_id' AND ut.status != 'Confirmed'";
+    // Query to fetch items added by the current user from the users_items table
+    $user_items_query = "SELECT ui.item_id, ui.status, i.name AS item_name, i.price
+                         FROM users_items ui
+                         INNER JOIN items i ON ui.item_id = i.id
+                         WHERE ui.user_id = '$user_id'";
 
     // Execute query
-    $user_products_result = mysqli_query($con, $user_products_query);
+    $user_items_result = mysqli_query($con, $user_items_query);
 
     // Check for errors
-    if (!$user_products_result) {
+    if (!$user_items_result) {
         die('Error: ' . mysqli_error($con));
     }
 
-    // Check if any items are in the cart
-    $no_of_user_products = mysqli_num_rows($user_products_result);
-    $sum = 0;
-
     // Process the result set
-    $user_products = [];
-    if ($no_of_user_products > 0) {
-        while ($row = mysqli_fetch_assoc($user_products_result)) {
-            $user_products[] = $row;
-            $sum += $row['price'];
-        }
+    $user_items = [];
+    while ($row = mysqli_fetch_assoc($user_items_result)) {
+        $user_items[] = $row;
     }
-
-    $_SESSION['sum'] = $sum;
 ?>
 
 <!DOCTYPE html>
@@ -65,39 +56,27 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Item Number</th>
                             <th>Item Name</th>
                             <th>Price</th>
-                            <th>Action</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
-                        if (!empty($user_products)) {
-                            $counter = 1;
-                            foreach ($user_products as $product) {
+                        if (!empty($user_items)) {
+                            foreach ($user_items as $item) {
                         ?>
                         <tr>
-                            <td><?php echo $counter ?></td>
-                            <td><?php echo $product['name']?></td>
-                            <td><?php echo $product['price']?></td>
-                            <td><a href='cart_remove.php?id=<?php echo $product['id'] ?>'>Remove</a></td>
+                            <td><?php echo $item['item_name']?></td>
+                            <td>$<?php echo $item['price']?></td>
+                            <td><?php echo $item['status']?></td>
                         </tr>
                         <?php 
-                                $counter++;
                             }
-                        ?>
-                        <tr>
-                            <td></td>
-                            <td>Total</td>
-                            <td>$ <?php echo $sum;?>/-</td>
-                            <td><a href="paystack/payment.php?id=<?php echo $user_id?>" class="btn btn-primary">Confirm Order</a></td>
-                        </tr>
-                        <?php 
                         } else {
                         ?>
                         <tr>
-                            <td colspan="4">No items in the cart</td>
+                            <td colspan="3">No items found for the user</td>
                         </tr>
                         <?php
                         }

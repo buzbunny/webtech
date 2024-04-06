@@ -25,10 +25,10 @@ include "core.php";
           <div class="nav__logo">
             <a href="#"><img src="landing/assets/logo.png" alt="logo" /></a>
           </div>
-          <form action="/">
+          <!-- <form action="/">
             <input type="text" placeholder="Search" />
             <button type="submit"><i class="ri-search-line"></i></button>
-          </form>
+          </form> -->
         </div>
         <div class="nav__btn">
         

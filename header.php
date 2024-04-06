@@ -6,7 +6,7 @@
                            <span class="icon-bar"></span>
                            <span class="icon-bar"></span>
                        </button>
-                       <a href="#" class="navbar-brand">WristLux. Co</a>
+                       <a href="products.php" class="navbar-brand">WristLux. Co</a>
                    </div>
                    
                    <div class="collapse navbar-collapse" id="myNavbar">
@@ -16,6 +16,7 @@
                            ?>
                            <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
                            <li><a href="settings.php"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+                           <li><a href="history.php"><span class="glyphicon glyphicon-time"></span> Purchase History</a></li>
                            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                            <?php
                            }else{

@@ -2,6 +2,9 @@
 <!DOCTYPE html>
 <html>
     <header>
+      <!-- SweetAlert library -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
         <link rel="stylesheet" href="login_style.css" />
     </header>
     <body>
@@ -46,8 +49,8 @@
                 <div class="cont_form_login">
                     <a href="#" onclick="hidden_login_and_sign_up()" ><i class="material-icons">&#xE5C4;</i></a>
                        <h2>LOGIN</h2>
-                     <input type="text" class="form-control" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
-                    <input type="password" class="form-control" name="password" placeholder="Password(min. 6 characters)" pattern=".{6,}" />
+                     <input type="text" class="form-control" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" REQUIRED/>
+                    <input type="password" class="form-control" name="password" placeholder="Password(min. 6 characters)" pattern=".{6,}"  REQUIRED/>
                     <button class="btn_login" onclick="change_to_login()">LOGIN</button>
                       </div>
 

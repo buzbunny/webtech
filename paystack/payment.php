@@ -19,11 +19,11 @@ include "cart.php"; // Include the cart.php file here to access its variables
     <form id="paymentForm">
         <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email-address" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : '' ?>" required />
+            <input type="email" id="email-address" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : '' ?>" required readonly/>
         </div>
         <div class="form-group">
             <label for="amount">Amount</label>
-            <input type="tel" id="amount" value="<?php echo isset($sum) ? $sum : '' ?>" required />
+            <input type="tel" id="amount" value="<?php echo isset($_SESSION['sum']) ? $_SESSION['sum'] : '' ?>" required readonly/>
         </div>
         <div class="form-group">
             <label for="first-name">First Name</label>
