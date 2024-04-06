@@ -55,7 +55,7 @@ function displayItems() {
                     echo '                        </p>';
                 } elseif ($sellerId == 3) {
                     echo '                        <p>';
-                    echo '                            <img src="landing/assets/rolex_logo.png" alt="logo" width="47%"/>';
+                    echo '                            <img src="landing/assets/rolex_logo.png" alt="logo" width="52%"/>';
                     echo '                        </p>';
                 } elseif ($sellerId == 4) {
                     echo '                        <p>';
@@ -63,7 +63,7 @@ function displayItems() {
                     echo '                        </p>';
                 } elseif ($sellerId == 5) {
                     echo '                        <p>';
-                    echo '                            <img src="landing/assets/RM_logo.png" alt="logo" width="90%"  style="margin-top: 18%;"/>';
+                    echo '                            <img src="landing/assets/rm_logo.png" alt="logo" width="90%"  style="margin-top: 18%;"/>';
                     echo '                        </p>';
                 } elseif ($sellerId == 1) {
                     echo '                        <p>';
