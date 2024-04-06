@@ -21,7 +21,7 @@ function displayUserDetails() {
         echo '<div class="settings-section">';
         echo '<h2 class="settings-title">General Information</h2>';
         echo '<div class="non-active-form">';
-        echo '<p>Name</p><span>' . $user_row['name'] . '</span><button class="edit-button"><i class="ri-edit-2-line"></i></button>';
+        echo '<p>Name</p><span>' . $user_row['name'] . '</span><button class="edit-button" onclick="toggleModal()"><i class="ri-edit-2-line"></i></button>';
         echo '</div>';
         echo '<div class="non-active-form">';
         echo '<p class="capitalize">Contact</p><span>' . $user_row['contact'] . '</span><button class="edit-button"></button>';
@@ -58,7 +58,7 @@ function displayUserDetails() {
                 </button>
             </div>
             <div class="modal-body">
-                <form id="editForm" class="form" action="edit_user_data_fxn.php">
+                <form id="editForm" class="form" action="edit_user_data_fxn.php" method="POST">
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" class="form-control" id="name" name="name">
@@ -87,55 +87,17 @@ function displayUserDetails() {
     </div>
 </div>
 
-
-
-    <script>
-       $(document).ready(function() {
-    // Function to handle opening the modal form
-    $('.edit-button').click(function() {
-        var fieldName = $(this).closest('.non-active-form').find('p').text();
-        var fieldValue = $(this).closest('.non-active-form').find('span').text();
-        var userId = <?php echo $_SESSION['user_id']; ?>; // Retrieve user ID from session
-        $('#editModal').find('.modal-title').text(fieldName);
-        $('#editModal').find('#newValue').val(fieldValue.trim());
-        $('#editModal').find('#field').val(fieldName); // Set the field name in the hidden input
-        $('#editModal').find('#userId').val(userId); // Set the user ID in the hidden input
-        $('#editModal').modal('show');
-    });
-
-    // Function to handle form submission
-    $('#saveChanges').click(function() {
-        var nameValue = $('#name').val(); // Get the value of the name field
-        var contactValue = $('#contact').val(); // Get the value of the contact field
-        var addressValue = $('#address').val(); // Get the value of the address field
-        var cityValue = $('#city').val(); // Get the value of the city field
-        var userId = $('#userId').val();
-        
-        // Check if name field is not empty
-        if (nameValue.trim() == "") {
-            alert("Name field cannot be empty.");
-            return; // Stop form submission
+<script>
+    function toggleModal() {
+        var modal = document.getElementById('editModal');
+        if (modal.classList.contains('show')) {
+            // If modal is currently shown, hide it
+            $('#editModal').modal('hide');
+        } else {
+            // If modal is currently hidden, show it
+            $('#editModal').modal('show');
         }
-
-        $.ajax({
-            type: 'POST',
-            url: 'edit_user_data_fxn.php', // PHP script to handle the update operation
-            data: { 
-                name: nameValue,
-                contact: contactValue,
-                address: addressValue,
-                city: cityValue,
-                userId: userId 
-            },
-            success: function(data) {
-                $('#editModal').modal('hide');
-                alert(data);
-                // Optionally, reload the page or perform any other action
-            }
-        });
-    });
-});
-
-    </script>
+    }
+</script>
 </body>
 </html>
