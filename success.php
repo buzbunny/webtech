@@ -46,7 +46,7 @@
         <div>
             <?php require 'header.php'; ?>
             <br>
-            <div class="container">
+            <div class="container" style=" margin-top: 5%;">
                 <div class="row">
                     <div class="col-xs-6">
                         <div class="panel panel-primary">

@@ -45,13 +45,13 @@
                     <form id="editForm" class="form my-form" method="post" action="setting_script.php">
                         <div class="form-group">
                             <div class="input-group">
-                                <input name="newPassword" placeholder="New Password" type="password" class="form-control">
+                                <input name="newPassword" placeholder="New Password" type="password" class="form-control" pattern="/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[_a-z0-9-]+)*(\.[a-z]{2,3})$/" REQUIRED>
                                 <span class="focus-input"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <input name="retype" placeholder="Retype Password" type="password" class="form-control">
+                                <input name="retype" placeholder="Retype Password" type="password" class="form-control" pattern="/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[_a-z0-9-]+)*(\.[a-z]{2,3})$/" REQUIRED>
                                 <span class="focus-input"></span>
                             </div>
                         </div>

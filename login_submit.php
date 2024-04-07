@@ -12,9 +12,9 @@ if (!preg_match($regex_email, $email)) {
     $error_message = "Incorrect email format";
 } else {
     $password = md5(md5(mysqli_real_escape_string($con, $_POST['password'])));
-    if (strlen($password) < 6) {
+    if (strlen($password) < 8) {
         // Password should have at least 6 characters, display error message and redirect to login page
-        $error_message = "Password should have at least 6 characters";
+        $error_message = "Password should have at least 8 characters";
     } else {
         $user_authentication_query = "SELECT id, email, role_id FROM users WHERE email='$email' AND password='$password'";
         $user_authentication_result = mysqli_query($con, $user_authentication_query) or die(mysqli_error($con));

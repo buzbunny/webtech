@@ -31,10 +31,6 @@ include "core.php";
           </form> -->
         </div>
         <div class="nav__btn">
-        
-          
-         
-          <a href="landing/login_page.php"><span><i class="ri-login-box-line"></i></span></a>
         </div>
       </nav>
       <div class="header__content">
@@ -52,17 +48,18 @@ include "core.php";
       </div>
       <div class="header__image">
         <div class="header__socials">
+        <a href="landing/login_page.php" style="margin-left: 70%;"><span><span><i class="ri-login-box-line"></i></span>Login</span></a>
         <?php
               // Check if user is logged in
               if(isset($_SESSION['email'])){
                   // If logged in, display link to settings page
-                  echo '<a href="settings.php"><span><i class="ri-settings-3-line"></i></span></a>';
+                  echo '<a href="settings.php" style="margin-left: 70%;"><span><span><i class="ri-settings-3-line"></i></span>Settings</span></a>';
               } else {
                   // If not logged in, redirect to login page
-                  echo '<a href="landing/login_page.php"><span><i class="ri-settings-3-line"></i></span></a>';
+                  echo '<a href="landing/login_page.php" style="margin-left: 70%;"><span><span><i class="ri-settings-3-line"></i></span>Settings</span></a>';
               }
             ?>
-        <a href="logout.php"><span><i class="ri-logout-box-line"></i></span></a>
+        <a href="logout.php" style="margin-left: 70%;"><span><span><i class="ri-logout-box-line"></i></span>Logout</span></a>
           <!-- <a href="#"><i class="ri-instagram-line"></i></a>
           <a href="#"><i class="ri-pinterest-line"></i></a>
           <a href="#"><i class="ri-facebook-fill"></i></a> -->

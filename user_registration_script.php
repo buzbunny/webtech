@@ -13,8 +13,8 @@ if (!preg_match($regex_email, $email)) {
     $confirm_password = mysqli_real_escape_string($con, $_POST['confirmpassword']);
 
     // Check if password and confirm password match and have at least 6 characters
-    if ($password !== $confirm_password || strlen($password) < 6) {
-        $error_message = "Passwords do not match or have less than 6 characters";
+    if ($password !== $confirm_password || strlen($password) < 8) {
+        $error_message = "Passwords do not match or have less than 8 characters";
     } else {
         $password = md5(md5($password));
 

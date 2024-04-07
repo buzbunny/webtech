@@ -49,8 +49,8 @@
                 <div class="cont_form_login">
                     <a href="#" onclick="hidden_login_and_sign_up()" ><i class="material-icons">&#xE5C4;</i></a>
                        <h2>LOGIN</h2>
-                     <input type="text" class="form-control" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" REQUIRED/>
-                    <input type="password" class="form-control" name="password" placeholder="Password(min. 6 characters)" pattern=".{6,}"  REQUIRED/>
+                     <input type="text" class="form-control" name="email" placeholder="Email" pattern="/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[_a-z0-9-]+)*(\.[a-z]{2,3})$/" REQUIRED/>
+                    <input type="password" class="form-control" name="password" placeholder="Password(min. 8 characters)" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"  REQUIRED/>
                     <button class="btn_login" onclick="change_to_login()">LOGIN</button>
                       </div>
 
@@ -62,8 +62,8 @@
                          <h2>SIGN UP</h2>
                     <input type="text" class="form-control" name="email" placeholder="Email" required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
                     <input type="text" class="form-control" name="name" placeholder="User" required="true" />
-                    <input type="password" class="form-control" name="password" placeholder="Password(min. 6 characters)" required="true" pattern=".{6,}" />
-                    <input type="password" class="form-control" name="confirmpassword" placeholder="Password(min. 6 characters)" required="true" pattern=".{6,}" />
+                    <input type="password" class="form-control" name="password" placeholder="Password(min. 8 characters)" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" />
+                    <input type="password" class="form-control" name="confirmpassword" placeholder="Password(min. 8 characters)" required="true" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" />
                     <input type="tel" class="form-control" name="contact" placeholder="Contact" required="true">
                     <input type="text" class="form-control" name="city" placeholder="City" required="true">
                     <input type="text" class="form-control" name="address" placeholder="Address" required="true">

@@ -39,6 +39,7 @@
                 <?php
                 if (isset($_SESSION['email'])) {
                     ?>
+                    <li><a href="products.php"><span class="glyphicon glyphicon-list"></span> Products</a></li>
                     <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
                     <li><a href="settings.php"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
                     <li><a href="history.php"><span class="glyphicon glyphicon-time"></span> Purchase History</a></li>

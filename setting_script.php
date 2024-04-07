@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       </script>";
     } else {
         // Perform regex validation for the new password
-        $password_regex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/';
+        $password_regex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/';
         if (!preg_match($password_regex, $newPassword)) {
             $sweetAlert = "<script>
                                 Swal.fire({
@@ -44,7 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $userId = $_SESSION['user_id'];
 
             // Hash the new password
-            $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+            // $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+            $hashedPassword = md5(md5($newPassword));
+
 
             // Prepare and execute the SQL query to update the user's password
             $sql = "UPDATE users SET password = ? WHERE id = ?";
