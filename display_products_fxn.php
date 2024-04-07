@@ -55,7 +55,7 @@ function displayItems() {
                     echo '                        </p>';
                 } elseif ($sellerId == 3) {
                     echo '                        <p>';
-                    echo '                            <img src="landing/assets/rolex_logo.png" alt="logo" width="54%"/>';
+                    echo '                            <img src="landing/assets/rolex_logo.png" alt="logo" width="53%"/>';
                     echo '                        </p>';
                 } elseif ($sellerId == 4) {
                     echo '                        <p>';
