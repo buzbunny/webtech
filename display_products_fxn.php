@@ -59,11 +59,11 @@ function displayItems() {
                     echo '                        </p>';
                 } elseif ($sellerId == 4) {
                     echo '                        <p>';
-                    echo '                            <img src="landing/assets/patek_logo.png" alt="logo" width="47%"/>';
+                    echo '                            <img src="landing/assets/patek_logo.png" alt="logo" width="50%"/>';
                     echo '                        </p>';
                 } elseif ($sellerId == 5) {
                     echo '                        <p>';
-                    echo '                            <img src="landing/assets/rm_logo.png" alt="logo" width="90%"  style="margin-top: 18%;"/>';
+                    echo '                            <img src="landing/assets/rm_logo.png" alt="logo" width="90%"  style="margin-top: 20%;"/>';
                     echo '                        </p>';
                 } elseif ($sellerId == 1) {
                     echo '                        <p>';
