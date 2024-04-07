@@ -110,6 +110,7 @@ body {
   gap: 2rem;
 }
 
+
 nav {
   position: absolute;
   padding: 1rem;
@@ -165,6 +166,7 @@ nav {
 
 .header__content {
   padding-block: 10rem 8rem;
+  margin-top: 25%;
 }
 
 .header__content h1 {
@@ -482,6 +484,26 @@ nav {
   font-size: 0.8rem;
   color: var(--text-light);
   text-align: center;
+}
+
+
+.clock{
+  border: none;
+  color: black;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: transparent;
+}
+#Date{
+  font-size: 10px !important;
+  text-align: center;
+}
+.clock ul {
+  list-style: none;
+  display: flex;
+  font-family: 'Digital-7', sans-serif;
+  font-size: 60px;
+  gap: 15px;
 }
 
 @media (width > 480px) {

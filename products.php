@@ -29,7 +29,7 @@
             <div class="container">
                 <div class="jumbotron">
                     <h1>Welcome to WristLux. Co watch collections!</h1>
-                    <p>We have thet best watches for you. No need to hunt around, we have all in one place.</p>
+                    <p>We have the best watches for you. No need to hunt around, we have all in one place.</p>
                 </div>
             </div>
             <div class="container">

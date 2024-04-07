@@ -16,6 +16,9 @@ include "core.php";
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
     <link rel="stylesheet" href="landing/styles.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Digital-7&display=swap">
+
     <title>WristLux.Co</title>
   </head>
   <body>
@@ -25,11 +28,23 @@ include "core.php";
           <div class="nav__logo">
             <a href="#"><img src="landing/assets/logo.png" alt="logo" /></a>
           </div>
-          <!-- <form action="/">
-            <input type="text" placeholder="Search" />
-            <button type="submit"><i class="ri-search-line"></i></button>
-          </form> -->
+       
+        <div class="container">
+            <div class="clock">
+                <div id="Date">Monday 26 September 2023</div>
+
+                <ul>
+                <li id="hours">05</li>
+                    <li id="point">:</li>
+                    <li id="min">20</li>
+                    <li id="point">:</li>
+                    <li id="sec">30</li>
+                </ul>
+            </div>
         </div>
+        </div>
+
+        
         <div class="nav__btn">
         </div>
       </nav>
@@ -105,7 +120,7 @@ if ($result->num_rows > 0) {
     echo '    <div class="trending__card__content">';
     echo '      <div class="trending__btns">';
     echo '        <button><i class="ri-heart-3-fill"></i></button>';
-    echo '        <button><i class="ri-shopping-bag-fill"></i></button>';
+    echo '        <a href="products.php"><button><i class="ri-shopping-bag-fill"></i></button></a>';
     echo '      </div>';
     echo '      <div class="trending__card__details">';
     echo '        <h4>' . $row["name"] . '</h4>';
@@ -159,7 +174,7 @@ if ($result->num_rows > 0) {
     echo '    <div class="trending__card__content">';
     echo '      <div class="trending__btns">';
     echo '        <button><i class="ri-heart-3-fill"></i></button>';
-    echo '        <button><i class="ri-shopping-bag-fill"></i></button>';
+    echo '        <a href="products.php"><button><i class="ri-shopping-bag-fill"></i></button></a>';
     echo '      </div>';
     echo '      <div class="trending__card__details">';
     echo '        <h4>' . $row["name"] . '</h4>';
@@ -213,7 +228,7 @@ $con->close();
           echo '    <div class="trending__card__content">';
           echo '      <div class="trending__btns">';
           echo '        <button><i class="ri-heart-3-fill"></i></button>';
-          echo '        <button><i class="ri-shopping-bag-fill"></i></button>';
+          echo '        <a href="products.php"><button><i class="ri-shopping-bag-fill"></i></button></a>';
           echo '      </div>';
           echo '      <div class="trending__card__details">';
           echo '        <h4>' . $row["name"] . '</h4>';
@@ -340,9 +355,10 @@ $con->close();
             <p class="section__description">
                 Dive into the world of luxury timepieces with insightful perspectives and captivating designs.
             </p>
-            <button class="btn">
-                <span><i class="ri-add-line"></i></span> Explore More
-            </button>
+            <a href="reviews.php" class="btn">
+    <span><i class="ri-add-line"></i></span> Explore More
+</a>
+
         </div>
     </div>
     <div class="story__card">
@@ -351,9 +367,10 @@ $con->close();
             <p class="section__description">
                 Unveil the essence of refinement and craftsmanship through the eyes of watch enthusiasts.
             </p>
-            <button class="btn">
-                <span><i class="ri-add-line"></i></span> Explore More
-            </button>
+            <a href="reviews.php" class="btn">
+    <span><i class="ri-add-line"></i></span> Explore More
+</a>
+
         </div>
     </div>
     <div class="story__card">
@@ -362,9 +379,10 @@ $con->close();
             <p class="section__description">
                 Experience the epitome of luxury and style, whether it's an adventurous journey or an elegant soirée.
             </p>
-            <button class="btn">
-                <span><i class="ri-add-line"></i></span> Explore More
-            </button>
+            <a href="reviews.php" class="btn">
+    <span><i class="ri-add-line"></i></span> Explore More
+</a>
+
         </div>
     </div>
     
@@ -384,9 +402,10 @@ $con->close();
             Elevate your wristwear collection and immerse yourself in the world of luxury timepieces with WristLux.Co!
         </p>
         
-          <button class="btn">
-            <span><i class="ri-add-line"></i></span> Buy Now
-          </button>
+        <a href="products.php" class="btn">
+    <span><i class="ri-add-line"></i></span> Buy Now
+</a>
+
           <img src="landing/assets/New_11.png" alt="banner bg" class="banner__bg" />
         </div>
       </div>
