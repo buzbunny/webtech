@@ -3,6 +3,7 @@ session_start();
 // include "core.php";
 include "connection.php";
 include "display_sales_fxn.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -79,6 +80,19 @@ include "display_sales_fxn.php";
     displaySalesPieChart()
     ?> 
 
+<?php
+// Calculate total sales
+$totalSales = 0;
+foreach ($chartData as $dataRow) {
+    $totalSales += $dataRow[2];
+}
+?>
+
+<div class="total-sales" style="font-weight: bold; color: grey; margin-top: 10%; margin-left: 18%; font-size: 48px;">
+    Total Sales:<br> $<?php echo $totalSales; ?>
+</div>
+
+    
 
 
 </div>
@@ -107,20 +121,17 @@ include "display_sales_fxn.php";
     displaySalesChart()
     ?>
 
-
 <?php
-// Calculate total sales
-$totalSales = 0;
-foreach ($chartData as $dataRow) {
-    $totalSales += $dataRow[2];
-}
-?>
+    include "manage_orders.php";
+    displayOrderedItems($con, $user_id)
+    ?>
 
-<div class="total-sales" style="font-weight: bold; color: grey; margin-top: 20%; margin-left: 25%; font-size: 48px;">
-    Total Sales: $<?php echo $totalSales; ?>
-</div>
+
+
 
   </div>
+
+  
 
 
     <script>
@@ -140,33 +151,6 @@ foreach ($chartData as $dataRow) {
             // Read the selected file
             reader.readAsDataURL(file);
         }
-
-        // document.addEventListener('DOMContentLoaded', function () {
-        //     const form = document.getElementById('product-form');
-
-        //     form.addEventListener('submit', (event) => {
-        //         event.preventDefault(); // Prevent default form submission
-
-        //         const formData = new FormData(form);
-
-        //         fetch('add_product_action.php', {
-        //                 method: 'POST',
-        //                 body: formData
-        //             })
-        //             .then(response => response.text())
-        //             .then(data => {
-        //                 console.log(data);
-        //                 // Handle the server response here, if needed
-        //                 // You can redirect or display a message based on the response
-        //                 // For now, let's just reload the page
-        //                 location.reload(); // Reload the page after successful submission
-        //             })
-        //             .catch(error => {
-        //                 console.error('Error:', error);
-        //                 // You might want to display an error message to the user here
-        //             });
-        //     });
-        // });
         
     </script>
 </body>
