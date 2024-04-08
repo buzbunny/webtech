@@ -36,6 +36,13 @@
         }
     }
 
+    // Calculate the total sum in GHS
+    $total_sum_ghs = $sum * 12;
+
+    // Store the total sum in GHS in a session
+    $_SESSION['total_sum_ghs'] = $total_sum_ghs;
+
+    // Store the total sum in USD in a session
     $_SESSION['sum'] = $sum;
 ?>
 
@@ -89,7 +96,7 @@
                         <tr>
                             <td></td>
                             <td>Total</td>
-                            <td>$ <?php echo $sum;?>/-</td>
+                            <td>USD <?php echo $sum;?><br>GHS <?php echo $total_sum_ghs;?></td>
                             <td><a href="paystack/payment.php?id=<?php echo $user_id?>" class="btn btn-primary">Confirm Order</a></td>
                         </tr>
                         <?php 

@@ -23,7 +23,7 @@ include "cart.php"; // Include the cart.php file here to access its variables
         </div>
         <div class="form-group">
             <label for="amount">Amount</label>
-            <input type="tel" id="amount" value="<?php echo isset($_SESSION['sum']) ? $_SESSION['sum'] : '' ?>" required readonly/>
+            <input type="tel" id="amount" value="<?php echo isset($_SESSION['total_sum_ghs']) ? $_SESSION['total_sum_ghs'] : '' ?>" required readonly/>
         </div>
         <div class="form-group">
             <label for="first-name">First Name</label>
