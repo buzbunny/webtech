@@ -85,7 +85,7 @@ include "display_sales_fxn.php";
 $totalSales = 0;
 
 // Query to fetch items' prices inserted by the current logged-in user
-$query = "SELECT items.price 
+$query = "SELECT SUM(items.price) AS total_price
           FROM users_items
           JOIN items ON users_items.item_id = items.id
           WHERE users_items.user_id = $userId";
@@ -93,9 +93,8 @@ $query = "SELECT items.price
 $result = mysqli_query($con, $query);
 
 if ($result) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $totalSales += $row['price'];
-    }
+    $row = mysqli_fetch_assoc($result);
+    $totalSales = $row['total_price'];
 } else {
     echo "Error fetching sales data: " . mysqli_error($con);
 }
