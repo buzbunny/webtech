@@ -67,7 +67,7 @@ include "display_sales_fxn.php";
       </div>
 
       <div>
-      <label for="image">Procduct Image of dimentions 1500 x 1500:</label>
+      <label for="image">Product Image of dimensions 1500 x 1500:</label>
         <input type="file" name="image"  accept="image/*" required onchange="editProfilePhoto(event)"><br>
       </div>
       
@@ -83,8 +83,21 @@ include "display_sales_fxn.php";
 <?php
 // Calculate total sales
 $totalSales = 0;
-foreach ($chartData as $dataRow) {
-    $totalSales += $dataRow[2];
+
+// Query to fetch items' prices inserted by the current logged-in user
+$query = "SELECT items.price 
+          FROM users_items
+          JOIN items ON users_items.item_id = items.id
+          WHERE users_items.user_id = $userId";
+
+$result = mysqli_query($con, $query);
+
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $totalSales += $row['price'];
+    }
+} else {
+    echo "Error fetching sales data: " . mysqli_error($con);
 }
 ?>
 
