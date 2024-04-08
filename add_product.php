@@ -84,17 +84,19 @@ include "display_sales_fxn.php";
 // Calculate total sales
 $totalSales = 0;
 
-// Query to fetch items' prices inserted by the current logged-in user
-$query = "SELECT SUM(items.price) AS total_price
-          FROM users_items
-          JOIN items ON users_items.item_id = items.id
-          WHERE users_items.user_id = $userId";
+// Query to fetch items' prices inserted by the current logged-in user and appear in the users_items table
+$query = "SELECT items.price, COUNT(users_items.id) AS quantity
+          FROM items
+          JOIN users_items ON items.id = users_items.item_id
+          WHERE items.user_id = $userId
+          GROUP BY items.id";
 
 $result = mysqli_query($con, $query);
 
 if ($result) {
-    $row = mysqli_fetch_assoc($result);
-    $totalSales = $row['total_price'];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $totalSales += ($row['price'] * $row['quantity']);
+    }
 } else {
     echo "Error fetching sales data: " . mysqli_error($con);
 }

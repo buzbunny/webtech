@@ -20,7 +20,7 @@ function displayOrderedItems($con, $user_id) {
 
     echo '<h2>Client Orders</h2>';
     echo '<table style="border-collapse: collapse; width: 100%;">';
-    echo '<tr><th style="border: 1px solid #ddd; padding: 8px;">User Name</th><th style="border: 1px solid #ddd; padding: 8px;">City</th><th style="border: 1px solid #ddd; padding: 8px;">Address</th><th style="border: 1px solid #ddd; padding: 8px;">Item Name</th><th style="border: 1px solid #ddd; padding: 8px;">Price</th><th style="border: 1px solid #ddd; padding: 8px;">Delivery Status</th></tr>';
+    echo '<tr><th style="border: 1px solid #ddd; padding: 8px;">User Name</th><th style="border: 1px solid #ddd; padding: 8px;">City</th><th style="border: 1px solid #ddd; padding: 8px;">Address</th><th style="border: 1px solid #ddd; padding: 8px;">Item Name</th><th style="border: 1px solid #ddd; padding: 8px;">Price</th><th style="border: 1px solid #ddd; padding: 8px;">Status</th></tr>';
 
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<tr>';
