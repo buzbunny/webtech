@@ -12,7 +12,7 @@ if (!preg_match($regex_email, $email)) {
     $password = mysqli_real_escape_string($con, $_POST['password']);
     $confirm_password = mysqli_real_escape_string($con, $_POST['confirmpassword']);
 
-    // Check if password and confirm password match and have at least 6 characters
+    // Check if password and confirm password match and have at least 8 characters
     if ($password !== $confirm_password || strlen($password) < 8) {
         $error_message = "Passwords do not match or have less than 8 characters";
     } else {
@@ -23,18 +23,24 @@ if (!preg_match($regex_email, $email)) {
         $address = mysqli_real_escape_string($con, $_POST['address']);
         $role_id = 1; // Default role_id
 
-        $duplicate_user_query = "SELECT id FROM users WHERE email='$email'";
-        $duplicate_user_result = mysqli_query($con, $duplicate_user_query) or die(mysqli_error($con));
-        $rows_fetched = mysqli_num_rows($duplicate_user_result);
-        if ($rows_fetched > 0) {
-            // Duplicate registration
-            $error_message = "Email already exists in our database";
+        // Regular expression to allow only letters, hyphens, and spaces
+        $regex_name = "/^[a-zA-Z\s\-]+$/";
+        if (!preg_match($regex_name, $name)) {
+            $error_message = "Name can only contain letters, hyphens, and spaces";
         } else {
-            $user_registration_query = "INSERT INTO users(name, email, password, contact, city, address, role_id) VALUES ('$name', '$email', '$password', '$contact', '$city', '$address', $role_id)";
-            $user_registration_result = mysqli_query($con, $user_registration_query) or die(mysqli_error($con));
-            $success_message = "User successfully registered";
-            $_SESSION['email'] = $email;
-            $_SESSION['id'] = mysqli_insert_id($con);
+            $duplicate_user_query = "SELECT id FROM users WHERE email='$email'";
+            $duplicate_user_result = mysqli_query($con, $duplicate_user_query) or die(mysqli_error($con));
+            $rows_fetched = mysqli_num_rows($duplicate_user_result);
+            if ($rows_fetched > 0) {
+                // Duplicate registration
+                $error_message = "Email already exists in our database";
+            } else {
+                $user_registration_query = "INSERT INTO users(name, email, password, contact, city, address, role_id) VALUES ('$name', '$email', '$password', '$contact', '$city', '$address', $role_id)";
+                $user_registration_result = mysqli_query($con, $user_registration_query) or die(mysqli_error($con));
+                $success_message = "User successfully registered";
+                $_SESSION['email'] = $email;
+                $_SESSION['id'] = mysqli_insert_id($con);
+            }
         }
     }
 }
